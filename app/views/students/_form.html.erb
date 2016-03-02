@@ -1,0 +1,36 @@
+<%= form_for @student do |f| %>
+	<% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@student.errors.count, "error") %> prohibited
+        this student from being saved:
+      </h2>
+      <ul>
+        <% @student.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  Name:           <%= f.text_field :name %><br/>
+  Roll number:    <%= f.text_field :roll_no %><br/>
+  City:           <%= f.text_field :city %><br/>
+  Gender:         <%= f.select :gender, options_for_select(["Select One", "Male", "Female"],              :disabled => ["Select One"]) %><br/>
+
+  Description:    <%= f.check_box :description, {:multiple => true}, "CSE", nil  %> 
+                  <%= f.check_box :description, {:multiple => true}, "ECE", nil %> 
+                  <%= f.check_box :description, {:multiple => true}, "EE", nil %>
+                  <%= f.check_box :description, {:multiple => true}, "MECHANICAL", nil %>
+
+<!-- <input type="checkbox" name="student[description]" value="cse">CSE
+<input type="checkbox" name="student[description]" value="ece">ECE
+<input type="checkbox" name="student[description]" value="ee">EE
+<input type="checkbox" name="student[description]" value="mec">MECH -->
+
+
+  Photo:          <%= f.file_field :photo %><br/>
+  Phone number:   <%= f.text_field :phno %><br/>
+  <%= submit_tag("Submit") %> 
+
+<% end %>

@@ -1,0 +1,22 @@
+<h1  align="center">STUDENT RECORDS</h1>
+<table border="1" , align="center">
+<tr><th>NAME</th>
+    <th >ROLL NUMBER</th>
+    <th>CITY</th>
+    <th colspan="3">GENDER</th>
+</tr>
+<% @student.each do |obj| %>
+<tr><td><%=obj.name%></td>
+    <td><%=obj.roll_no%></td>  
+    <td><%=obj.city%></td> 
+    <td><%=obj.gender%></td>
+    <td><%= link_to 'EDIT', "/students/#{obj.id}/edit" %></td>
+    <td><%= link_to 'DELETE', "/students/#{obj.id}", method: :delete , :confirm => "Are you sure you want to delete this item?"  %></td>
+</tr>
+<%end%>
+</table>
+<br/><br/><br/>
+<h2 align="center"><%= link_to 'New record', new_student_path %></h2>
+<%= image_tag "app/assets/images/index.jpeg", alt: "Home" %>
+
+

@@ -1,0 +1,22 @@
+<table border="1">
+
+	 <tr>
+		  <th>student name</th>		
+		  <th>roll number</th>
+          <th>city</th>
+          <th>gender</th>
+          <th>descritpion</th>
+	 </tr>
+	 <tr>
+		  <td><%= @student.name %> </td>
+		  <td><%= @student.roll_no %> </td>	
+          <td><%= @student.city %></td>
+          <td><%= @student.gender %></td>
+          <td><%= @student.description %></td>
+	 </tr>
+
+</table>
+<%= @student.photo%>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
